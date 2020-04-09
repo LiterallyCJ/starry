@@ -1,0 +1,101 @@
+          :root {
+  /* Colors */
+  --blue:   #33daff;
+  --green:  #00e676;
+  --yellow: #efff48;
+  --red:  #ff23c0;
+}
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+.purves_rainbow--loader { 
+  background-repeat: no-repeat;
+}
+
+/* Setup */
+.purves_rainbow--loader:before,
+.purves_rainbow--loader:after {
+  content: '';
+  display: block;
+  position: fixed; right: 0; bottom: 0; left: 0;
+    z-index: 0;
+  opacity: 1;
+  color: #fff;
+  height: 100%; 
+  pointer-events: none;
+}
+
+/* Rainbow Gradient */
+.purves_rainbow--loader:before  { 
+  height: 5px;
+  width: 300vw;
+  left: -100vw;
+  animation: RainbowBefore 2s linear infinite; 
+  background-image: linear-gradient(to right, 
+    var(--blue), 
+    var(--green), 
+    var(--yellow), 
+    var(--red),
+    var(--yellow), 
+    var(--green), 
+    var(--blue), 
+    var(--green), 
+    var(--yellow), 
+    var(--red));
+}
+
+/* Hex Background */
+.purves_rainbow--loader:after   { 
+  
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  height: 100%;
+  width: 100%;
+  bottom: 1px;
+} 
+
+
+/* Animations 
+********************************************/ 
+/* Rainbow */
+@keyframes RainbowBefore {
+  0% { transform: translateX(-100vw); }
+  100% { transform: translateX(100vw); }
+}
+
+/* Fade In */
+@keyframes FadeIn { 
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Power On */
+@keyframes Power {
+  0% { background-position: 175% 50%; }
+  100% { background-position: -100% 50%; }
+}
+
+ 
+
+/* Mobile */
+@media (min-width: 0) and (max-width: 768px) {
+  .purves_rainbow--loader { 
+    margin: 25vh auto -100px;
+  }
+
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) { 
+
+    
+}
+
+/* Desktop */
+@media (min-width: 1025px) { 
+
+  
+}
